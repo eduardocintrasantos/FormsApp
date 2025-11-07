@@ -14,7 +14,12 @@ class CubitCounterScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Cubit counter: ${counterState.transactionCount}'),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.refresh_outlined)),
+          IconButton(
+            onPressed: () {
+              context.read<CounterCubit>().reset();
+            }, 
+            icon: Icon(Icons.refresh_outlined)
+          ),
         ],
       ),
       body: Center(
@@ -31,19 +36,25 @@ class CubitCounterScreen extends StatelessWidget {
           FloatingActionButton(
             heroTag: '1',
             child: Text('+3'),
-            onPressed: () {},
+            onPressed: () {
+              context.read<CounterCubit>().increaseBy(3);
+            },
           ),
           SizedBox(height: 15),
           FloatingActionButton(
             heroTag: '2',
             child: Text('+2'),
-            onPressed: () {},
+            onPressed: () {
+              context.read<CounterCubit>().increaseBy(2);
+            },
           ),
           SizedBox(height: 15),
           FloatingActionButton(
             heroTag: '3',
             child: Text('+1'),
-            onPressed: () {},
+            onPressed: () {
+              context.read<CounterCubit>().increaseBy(1);
+            },
           ),
         ],
       ),

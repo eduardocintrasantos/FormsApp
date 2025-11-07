@@ -12,7 +12,7 @@ class CounterCubit extends Cubit<CounterState> {
     ));
   }
 
-  void reset( int value) {
+  void reset() {
     emit(state.copyWith(
       counter: 0,
     ));
